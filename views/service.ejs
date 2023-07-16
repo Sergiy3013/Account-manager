@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">    
+    <link href="/styles/global.css" rel="stylesheet">
+    <% if(img.length > 0){ %>
+        <link rel="icon" type="image/x-icon" href="<%= img %>">
+    <% } else { %>
+        <link rel="icon" type="image/x-icon" href="/img/icon.ico">
+    <% } %>
+
+    <title><%= title %></title>
+</head>
+<body>
+
+<menu>
+    <ul>
+        <li title="Main page">
+            <a id="view" href="/" title="Main page">
+                <img src="/img/home.png" alt="">
+                <p>Main page</p>
+            </a>
+        </li>
+        <%for (var ell in menu){%>
+            <li title="<%= menu[ell].link %>">
+                <a id="view" href="/services/<%= menu[ell].link %>" title="Viewing the service <%= menu[ell].title %>">
+                    <img src="<%= menu[ell].icon %>" alt="<%= menu[ell].link %>">
+                    <p><%= menu[ell].title %></p>
+                </a>
+            </li>
+        <%}%>
+    </ul>
+</menu>
+
+<section class="content">
+    <ul>
+        <li class="new_service">
+            <div class="main">
+                <div class="inputs">
+                    <input type="text" id="login" placeholder="Login">
+                    <input type="text" id="pass" placeholder="Password">
+                </div>
+                <img id="img_preview" src="<%= img %>" alt="">
+                <div class="btns">
+                    <b>
+                        <input type="checkbox" id="status" checked>
+                        <input type="text" id="crypt_key" placeholder="Password encryption key">
+                    </b>
+                    <div>
+                        <a href="#" title="Save" class="yes"><i class="far fa-check-square"></i></a>
+                        <a href="#" title="Cancel" class="no"><i class="far fa-times-circle"></i></a>
+                    </div>
+                </div>
+            </div>
+            <textarea rows="2"></textarea>
+        </li>
+    <%for (var ell in data){%>
+        <li value="<%= ell %>">
+            <div class="main">
+                <div class="info">
+                    <p>
+                        <!-- <%=parseInt(ell)+1%> -->
+                        <% if (data[ell].stat) { %>
+                            <input type="checkbox" id="status" disabled checked>
+                        <%} else { %>
+                            <input type="checkbox" id="status" disabled >
+                        <% } %>
+                        <span class="mark"></span>
+                        <input type="text" id="login" value="<%= data[ell].login %>" disabled>
+                        <input type="text" id="pass" value="<%= data[ell].pass %>" disabled>
+                    </p>
+                </div>
+                <div class="control">
+                    <a id="view" href="#view_<%= ell %>" title="View password"><i class="fas fa-eye"></i></a>
+                    <a id="edit" href="#edit_<%= ell %>" title="Edit"><i class="fas fa-edit"></i></a>
+                    <a id="delete" href="#delete_<%= ell %>" title="Delete"><i class="fas fa-trash"></i></a>
+                </div>
+            </div>
+            <% if (data[ell].comment == undefined || data[ell].comment == "") { %>
+            <%} else { %>
+                <textarea rows="3" disabled><%= data[ell].comment %></textarea>
+            <% } %>
+        </li>
+    <%}%>
+    </ul>
+</section>
+
+<script src="/js/script.js"></script>
+<script id="rm">
+    servicePage();
+    document.querySelector("script#rm").remove();
+</script>
+</body>
+</html>

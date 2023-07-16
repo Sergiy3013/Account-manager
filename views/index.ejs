@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">    
+    <link href="/styles/global.css" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="/img/icon.ico">
+
+    <title><%= title %></title>
+</head>
+<body>
+
+<menu>
+    <ul>
+        <li title="Main page">
+            <a id="view" href="/" title="Main page">
+                <img src="/img/home.png" alt="">
+                <p>Main page</p>
+            </a>
+        </li>
+        <%for (var ell in menu){%>
+            <li title="<%= menu[ell].link %>">
+                <a id="view" href="/services/<%= menu[ell].link %>" title="Viewing the service <%= menu[ell].title %>">
+                    <img src="<%= menu[ell].icon %>" alt="<%= menu[ell].link %>">
+                    <p><%= menu[ell].title %></p>
+                </a>
+            </li>
+        <%}%>
+    </ul>
+</menu>
+
+<section class="content">
+    <ul>
+        <li class="new_service">
+            <div class="main">
+                <div class="inputs">
+                    <input type="text" id="title" placeholder="Name">
+                    <input type="text" id="code" placeholder="Code">
+                    <input type="text" id="img_link" placeholder="Image link">
+                </div>
+                <img id="img_preview" src="/img/no_img.jpg" alt="">
+                <div class="btns">
+                    <div>
+                        <a href="#" title="Save" class="yes"><i class="far fa-check-square"></i></a>
+                        <a href="#" title="Cancel" class="no"><i class="far fa-times-circle"></i></a>
+                    </div>
+                </div>
+            </div>
+        </li>
+    <%for (var ell in services){%>
+        <li title="<%= services[ell].link %>">
+            <div class="main">
+                <div class="info">
+                    <img src="<%= services[ell].icon %>" alt="">
+                    <p><a id="view" href="/services/<%= services[ell].link %>" title="View accounts"></a><%= services[ell].title %></p>
+                </div>
+                <div class="control">
+                    <a id="view" href="/services/<%= services[ell].link %>" title="View accounts"><i class="fas fa-eye"></i></a>
+                    <a id="edit" href="#edit_<%= ell %>" title="Edit"><i class="fas fa-edit"></i></a>
+                    <a id="delete" href="#delete_<%= ell %>" title="Delete"><i class="fas fa-trash"></i></a>
+                </div>
+            </div>
+        </li>
+    <%}%>
+    </ul>
+</section>
+
+
+<script src="/js/script.js"></script>
+<script id="rm">
+    servicesPage();
+    const codes = '<%= links %>'.split(",");
+    document.querySelector("script#rm").remove();
+</script>
+</body>
+</html>

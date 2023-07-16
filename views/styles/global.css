@@ -1,0 +1,292 @@
+* {
+  margin: 0;
+  padding: 0;
+  --ul-border-color: #050609;
+  --link-color: #f5f1ed;
+  --bg-color: #181c25;
+}
+body {
+  background-color: #181c25;
+  display: flex;
+  color: var(--link-color);
+}
+a {
+  transition: 0.5s;
+  color: #0a69b1;
+}
+a:hover {
+  transition: 0.5s;
+  color: #0984e3;
+}
+a#edit {
+  color: #cecb34;
+}
+a#edit:hover {
+  color: #ebe837;
+}
+a#delete {
+  color: #c0392b;
+}
+a#delete:hover {
+  color: #e74c3c;
+}
+input[type="checkbox"]{
+  width: 25px;
+  height: 25px;
+}
+
+.mark{
+  margin-top: 7px;
+  top: 0;
+  left: 0;
+  position: absolute;
+  height: 25px;
+  width: 25px;
+  background-color: red;
+  cursor: default;
+  border-radius: 10px;
+}
+li:not(.new_service) input[type="checkbox"] {
+  /* position: relative; */
+  display: none;
+}
+.mark:after {
+  content: "";
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  /* border-radius: 10px; */
+}
+/* li:not(.new_service):hover input[type="checkbox"] ~ .mark:after{
+  background-color: yellow;
+} */
+li:not(.new_service) input[type="checkbox"]:active ~ .mark{
+  background-color: red;
+}
+li:not(.new_service) input[type="checkbox"]:checked ~ .mark{
+  background-color: green;
+}
+li:not(.new_service) input[type="checkbox"]:checked ~ .mark:after {
+  left: 8px;
+  bottom: 5px;
+  width: 6px;
+  height: 12px;
+  border: solid white;
+  border-width: 0 4px 4px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+*::-webkit-scrollbar {
+  width: 5px;
+  background-color: var(--ul-border-color);
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #0a69b1;
+}
+
+menu {
+  width: 30%;
+  height: 100vh;
+  position: fixed;
+  overflow-y: scroll;
+  /* background-color: #fff; */
+  /* display: flex; */
+  border-right: 1px solid var(--ul-border-color);
+}
+menu li {
+  border-bottom: 1px solid var(--ul-border-color);
+  transition: 0.5s;
+}
+menu li:hover {
+  background-color: var(--ul-border-color);
+  transition: 0.5s;
+}
+
+menu a {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  color: var(--link-color);
+  text-decoration: none;
+  padding: 10px 0 10px;
+}
+menu a p {
+  color: var(--link-color);
+  margin-left: 10px;
+  height: 20px;
+}
+menu img {
+  width: 50px;
+  height: 50px;
+  margin-left: 10px;
+  border-radius: 100%;
+  background-color: #000000f0;
+}
+
+.content {
+  width: 100%;
+  /* border: 1px solid black; */
+  margin-left: 30%;
+}
+
+.content ul li.new_service .main {
+  display: flex;
+  justify-content: space-around;
+  /* background-color: #fff; */
+}
+.content ul li.new_service img {
+  width: 70px;
+  height: 70px;
+  border-radius: 100%;
+  background-color: #000000f0;
+}
+
+.content ul li.new_service .inputs {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 40%;
+}
+.content ul li.new_service .btns {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.content ul li.new_service .inputs input,
+.content ul li.new_service .btns input {
+  width: 100%;
+  border-radius: 10px;
+  margin: 5px 0 5px 0;
+  padding: 5px;
+}
+
+#crypt_key {
+  margin: 0;
+}
+.content ul li.new_service .btns b {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 15px;
+}
+.content ul li.new_service .btns b input[type="checkbox"] {
+  width: 25px;
+  height: 25px;
+  margin: 0;
+  margin-right: 10px;
+}
+.content ul li.new_service .btns div {
+  margin: 15px 0 15px 0;
+  display: flex;
+}
+.content ul li.new_service .btns div a {
+  /* background-color: #39393A; */
+  /* background-color: #ffffff10; */
+  padding: 10px 30px 10px 30px;
+  border-radius: 10px;
+  font-size: 25px;
+  margin: 0 5px 0 5px;
+}
+.content ul li.new_service .btns div a.yes:hover {
+  background-color: #2ecc71;
+}
+.content ul li.new_service .btns div a.no:hover {
+  background-color: #e74c3c;
+}
+
+.content ul {
+  list-style-type: none;
+  /* width: 100%; */
+  width: calc(100% - 2px);
+  /* border: 0px 1px solid var(--ul-border-color); */
+}
+.content ul li {
+  border-bottom: 1px solid var(--ul-border-color);
+}
+.content ul li textarea {
+  margin: 0 10px 0 10px;
+  width: calc(100% - 20px);
+  resize: vertical;
+}
+.content ul li .main {
+  /* min-height: 60px; */
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  transition: 0.5s;
+}
+/* .content ul li:last-child {
+	border-bottom: 0px;
+} */
+.content ul li:hover {
+  cursor: pointer;
+  background-color: #050609;
+  transition: 0.5s;
+}
+.content ul li .info {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+}
+.content ul li .info img {
+  height: 50px;
+  width: 50px;
+  margin: 5px 0 5px 10px;
+  border-radius: 100%;
+  background-color: #000000f0;
+}
+.content ul li .info p {
+  margin-left: 10px;
+}
+.content ul li .control {
+  margin-right: 10px;
+}
+
+input, textarea {
+  background-color: #fff;
+  color: black;
+}
+
+.content ul li .info p {
+  position: relative;
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.content ul li .info p input {
+  border-radius: 10px;
+  margin: 5px 0 5px 0;
+  padding: 5px;
+}
+.content ul li .info p input#login {
+  width: 40%;
+  margin-left: 35px;
+}
+.content ul li .info p input#pass {
+  width: 40%;
+}
+
+li.new_service .main {
+  height: calc(160 - 30)px;
+}
+li.new_service {
+  height: 160px;
+  z-index: 99;
+  background-color: var(--bg-color);
+  position: fixed;
+  width: 70%;
+  right: 0;
+  top: 0;
+}
+.content li:not(.new_service):nth-child(2){
+  margin-top: 160px;
+}

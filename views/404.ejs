@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">    
+    <link href="/styles/global.css" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="/img/icon.ico">
+
+    <title><%= title %></title>
+</head>
+<body>
+<section class="middle">
+    <div class="menu">
+        <%for (var ell in menu){%>
+            <li class="item" id='<%=menu[ell].id%>'>
+                <a href="<%=menu[ell].link%>" class="btn"><i class="<%=menu[ell].icon%>"></i><%= menu[ell].title %></a>
+                <div class="smenu">
+                    <%for (var sell in menu[ell].sub){%>
+                        <a href="<%= menu[ell].sub[sell].link %>"><i class="<%= menu[ell].sub[sell].icon %>"></i><%= menu[ell].sub[sell].title %></a>   
+                    <%}%>
+                </div>
+            </li>   
+        <%}%>
+            
+        <li class="item">
+            <a href="/" class="btn"><i class="fas fa-sign-out-alt"></i>Exit</a>
+        </li>
+    </div>
+</section>
+
+<section class="page">
+    <div class="forma">
+    <center>
+        <br><br>
+        <h1>The page does not exist</h1>
+        <h2 class="err">404</h2>
+        <br><br>
+    </center>
+    </div>
+</section>
+<script src="/js/script.js"></script>
+</body>
+</html>

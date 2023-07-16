@@ -1,0 +1,34 @@
+{
+    "links": [
+        "google"
+    ],
+    "services": [
+        {
+            "title": "Google",
+            "link": "google",
+            "icon": "https://img.utdstc.com/icon/207/754/20775446e3be597100aec56474bea69fc9e64d29e5cb3aa84d93f50462cc108c:200"
+        }
+    ],
+    "auth_data": {
+        "google": [
+            {
+                "login": "Demo login 1",
+                "pass": "ccc2d6ebc7f64f5be6c69e73dea6a01d:75073d5128e7f0b37497b5020dfbf2b0",
+                "stat": true,
+                "comment": "key: key1"
+            },
+            {
+                "login": "Demo login 2",
+                "pass": "8f450052df1502350bc2fa337d6c41b1:ca617da4a4f17f5abefde6018898c34d",
+                "stat": true,
+                "comment": "key: key2"
+            },
+            {
+                "login": "Demo login 3",
+                "pass": "ff1fceebfe96a5755a4ac509b88a5660:db9907281a946af6cfd97e647b176299",
+                "stat": true,
+                "comment": "key: key3"
+            }
+        ]
+    }
+}
